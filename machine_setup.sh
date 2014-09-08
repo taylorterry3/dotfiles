@@ -1,7 +1,6 @@
 #!/bin/bash
 # Stuff that this doesn't do:
 # Anaconda (wget the current .sh and run it)
-# Julia
 
 # Uncomment the remaining libraries in sources.list
 # Only run this once as there are actual comment lines in there with ##
@@ -23,12 +22,13 @@ add-apt-repository ppa:marutter/rrutter -y
 add-apt-repository ppa:ubuntugis/ubuntugis-stable -y
 add-apt-repository ppa:kilian/f.lux -y
 add-apt-repository 'deb http://cran.rstudio.com/bin/linux/ubuntu trusty/' -y
+add-apt-repository ppa:staticfloat/juliareleases -y
 
 echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable git fluxgui xclip tmux
+apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable git fluxgui xclip tmux julia
 
 echo "Finished adding PPAs and installing applications"
 exit 0
