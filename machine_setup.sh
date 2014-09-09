@@ -1,5 +1,6 @@
 #!/bin/bash
 # Stuff that this doesn't do:
+# Git and xclip, as well as github key setup
 # Anaconda (wget the current .sh and run it)
 
 # Uncomment the remaining libraries in sources.list
@@ -28,7 +29,7 @@ echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable git fluxgui xclip tmux julia
+apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable fluxgui tmux julia
 
 echo "Finished adding PPAs and installing applications"
 exit 0
