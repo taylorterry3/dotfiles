@@ -5,7 +5,7 @@
 
 # Uncomment the remaining libraries in sources.list
 # Only run this once as there are actual comment lines in there with ##
-# sed 's/# deb/deb/' -i /etc/apt/sources.list
+# sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
 
 echo "Adding keys"
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4E9CFF4E
@@ -29,7 +29,7 @@ echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable fluxgui tmux julia
+apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable fluxgui tmux julia vim
 
 echo "Finished adding PPAs and installing applications"
 exit 0
