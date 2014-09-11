@@ -16,7 +16,11 @@ echo "Adding deb repos"
 # echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
 # echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
-echo "Manually downloading some installers"
+echo "Manually downloading some installers\nBe careful, there is hardcoding to tterry here"
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+chown -R ~/.vim tterry
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "Adding PPAs"
 add-apt-repository ppa:marutter/rrutter -y
@@ -29,7 +33,7 @@ echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable fluxgui tmux julia vim
+apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable fluxgui tmux julia vim curl
 
 echo "Finished adding PPAs and installing applications"
 exit 0
