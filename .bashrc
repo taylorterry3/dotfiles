@@ -89,6 +89,17 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Git aliases
+alias gpom='git push origin master'
+
+# Civis-specific aliases
+alias enhd='rsg -c "\d catalist.enh_all" | grep '
+alias dbox='cd /cygdrive/c/Documents\ and\ Settings/User/Dropbox\ \(Civis\)/'
+
+# Cygwin-specific aliases
+alias resized='kill -WINCH $$'
+
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
