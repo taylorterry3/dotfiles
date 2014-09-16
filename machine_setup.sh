@@ -1,7 +1,7 @@
 #!/bin/bash
 # Stuff that this doesn't do:
 # Git and xclip, as well as github key setup
-# Anaconda (wget the current .sh and run it)
+# Anaconda (wget the current Python 3.x .sh, something like http://repo.continuum.io/anaconda3/Anaconda3-2.0.1-Linux-x86_64.sh, and run it)
 
 # Uncomment the remaining libraries in sources.list
 # Only run this once as there are actual comment lines in there with ##
