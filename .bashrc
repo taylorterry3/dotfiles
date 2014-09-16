@@ -92,13 +92,11 @@ alias l='ls -CF'
 # Git aliases
 alias gpom='git push origin master'
 
-# Civis-specific aliases
-alias enhd='rsg -c "\d catalist.enh_all" | grep '
-alias dbox='cd /cygdrive/c/Documents\ and\ Settings/User/Dropbox\ \(Civis\)/'
-
 # Cygwin-specific aliases
 alias resized='kill -WINCH $$'
 
+# Private content
+source .bashrc_private
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
