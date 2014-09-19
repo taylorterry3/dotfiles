@@ -14,8 +14,8 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-ke
 
 echo "Adding deb repos"
 # Commenting these out after first run so as not to turd up sources.list
-# echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
-# echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
+echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
 echo "Manually downloading some installers\nBe careful, there is hardcoding to tterry here"
 
