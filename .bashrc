@@ -90,8 +90,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # header and zheader
-alias header='cat $1 | head -1 | tr '\t' '\n' | nl'
-alias zheader='zcat $1 | head -1 | tr '\t' '\n' | nl'
+alias header='head -1 | tr '\t' '\n' | nl'
 
 # Git aliases
 alias gpom='git push origin master'
