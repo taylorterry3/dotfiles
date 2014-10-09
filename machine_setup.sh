@@ -5,15 +5,14 @@
 # R's devtools mess
 
 # Uncomment the remaining libraries in sources.list
-# Only run this once as there are actual comment lines in there with ##
-# sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
+sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
 
 echo "Adding keys"
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4E9CFF4E
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
 echo "Adding deb repos"
-# Commenting these out after first run so as not to turd up sources.list
+# Comment these out after first run so as not to spam sources.list
 echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
