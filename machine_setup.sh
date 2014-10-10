@@ -3,6 +3,7 @@
 # Git and xclip, as well as github key setup
 # Anaconda (wget the current Python 3.x .sh, something like http://repo.continuum.io/anaconda3/Anaconda3-2.0.1-Linux-x86_64.sh, and run it)
 # R's devtools mess
+# Rstudio
 
 # Uncomment the remaining libraries in sources.list
 sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
@@ -33,7 +34,7 @@ echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable openvpn fluxgui tmux julia vim curl
+apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable openvpn fluxgui tmux julia vim curl libapparmor1 ruby
 
 echo "Finished adding PPAs and installing applications"
 exit 0
