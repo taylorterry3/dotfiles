@@ -98,6 +98,9 @@ alias gpom='git push origin master'
 # Cygwin-specific aliases
 alias resized='kill -WINCH $$'
 
+# Useful for Ubuntu VMs
+alias reconnect='sudo service network-manager restart'
+
 # Private content
 source .bashrc_private
 

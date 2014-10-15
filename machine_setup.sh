@@ -3,17 +3,17 @@
 # Git and xclip, as well as github key setup
 # Anaconda (wget the current Python 3.x .sh, something like http://repo.continuum.io/anaconda3/Anaconda3-2.0.1-Linux-x86_64.sh, and run it)
 # R's devtools mess
+# Rstudio
 
 # Uncomment the remaining libraries in sources.list
-# Only run this once as there are actual comment lines in there with ##
-# sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
+sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
 
 echo "Adding keys"
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4E9CFF4E
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
 echo "Adding deb repos"
-# Commenting these out after first run so as not to turd up sources.list
+# Comment these out after first run so as not to spam sources.list
 echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
@@ -34,7 +34,7 @@ echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable openvpn fluxgui tmux julia vim curl
+apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable openvpn fluxgui tmux julia vim curl libapparmor1 ruby
 
 echo "Finished adding PPAs and installing applications"
 exit 0
