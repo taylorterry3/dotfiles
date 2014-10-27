@@ -4,6 +4,7 @@
 # Anaconda (wget the current Python 3.x .sh, something like http://repo.continuum.io/anaconda3/Anaconda3-2.0.1-Linux-x86_64.sh, and run it)
 # R's devtools mess
 # Rstudio
+# Revolution R's optimized R distro
 
 # Uncomment the remaining libraries in sources.list
 sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
