@@ -35,7 +35,7 @@ echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable openvpn fluxgui tmux julia vim curl libapparmor1 ruby ruby-dev sqlite3 libsqlite3-dev
+apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable openvpn fluxgui tmux julia vim curl libapparmor1 ruby ruby-dev sqlite3 libsqlite3-dev libjpeg62
 
 echo "Finished adding PPAs and installing applications"
 exit 0
