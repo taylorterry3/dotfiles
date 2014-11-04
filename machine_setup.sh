@@ -1,10 +1,12 @@
 #!/bin/bash
 # Stuff that this doesn't do:
 # Git and xclip, as well as github key setup
-# Anaconda (wget the current Python 3.x .sh, something like http://repo.continuum.io/anaconda3/Anaconda3-2.0.1-Linux-x86_64.sh, and run it)
+# Anaconda (wget the current Python 3.x .sh, something like http://repo.continuum.io/anaconda3/Anaconda3-2.1.0-Linux-x86_64.sh, and run it)
 # R's devtools mess
 # Rstudio
 # Revolution R's optimized R distro
+# Put this line in .profile for RRO:
+# export RSTUDIO_WHICH_R=/usr/lib64/RRO-8.0/R-3.1.1/bin/R
 
 # Uncomment the remaining libraries in sources.list
 sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
