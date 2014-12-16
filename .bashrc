@@ -89,7 +89,7 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 
-# header and zheader
+# header function
 alias header='head -1 | tr "\t" "\n" | nl'
 
 # Git aliases
@@ -98,7 +98,7 @@ alias gpom='git push origin master'
 # Cygwin-specific aliases
 alias resized='kill -WINCH $$'
 
-# Useful for Ubuntu VMs
+# Useful for forcing Ubuntu VM to reset its network connections after connecting to VPN on the host machine
 alias reconnect='sudo service network-manager restart'
 
 # Private content
