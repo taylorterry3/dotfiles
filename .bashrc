@@ -130,3 +130,16 @@ fi
 
 # added by Anaconda3 2.0.1 installer
 export PATH=~/anaconda3/bin:$PATH
+
+# https://gist.github.com/clneagu/7990272
+check_venv() {
+    if [ -e .venv ]; then
+        env=`cat .venv`
+        if [ "$env" != "${VIRTUAL_ENV##/}" ]; then
+            echo "Found .venv in directory. Calling: workon ${env}"
+            workon $env
+        fi
+    fi
+
+}
+
