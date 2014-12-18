@@ -33,6 +33,7 @@ add-apt-repository ppa:ubuntugis/ubuntugis-stable -y
 add-apt-repository ppa:kilian/f.lux -y
 add-apt-repository 'deb http://cran.rstudio.com/bin/linux/ubuntu trusty/' -y
 add-apt-repository ppa:staticfloat/juliareleases -y
+add-apt-repository ppa:git-core/ppa -y
 
 echo "updating repositories"
 apt-get update
