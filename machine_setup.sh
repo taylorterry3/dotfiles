@@ -40,7 +40,7 @@ echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install r-base qgis postgresql-9.3 postgresql-contrib-9.3 pgadmin3 spotify-client-qt google-chrome-stable openvpn fluxgui tmux julia vim curl libapparmor1 ruby ruby-dev sqlite3 libsqlite3-dev libjpeg62 python-bs4 rbenv ruby-build lm-sensors
+apt-get install build-essential curl fluxgui git-core google-chrome-stable julia libapparmor1 libcurl4-openssl-dev libjpeg62 libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev lm-sensors openvpn pgadmin3 postgresql-9.3 postgresql-contrib-9.3 python-bs4 python-software-properties qgis r-base rbenv ruby ruby-build ruby-dev spotify-client-qt sqlite3 tmux vim zlib1g-dev
 
 echo "Finished adding PPAs and installing applications"
 exit 0
