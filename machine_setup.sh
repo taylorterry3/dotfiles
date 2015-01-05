@@ -3,6 +3,7 @@
 # Git and xclip, as well as github key setup
 # Anaconda (wget the current Python 3.x .sh, something like http://repo.continuum.io/anaconda3/Anaconda3-2.1.0-Linux-x86_64.sh, and run it)
 # Then export PATH=~/anaconda3/bin:$PATH
+# Ruby setup with rbenv: https://gorails.com/setup/ubuntu/14.04
 # R's devtools mess
 # Rstudio
 # Revolution R's optimized R distro
