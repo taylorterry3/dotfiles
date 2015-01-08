@@ -15,7 +15,8 @@ sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
 
 echo "Adding keys"
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4E9CFF4E
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -i
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9 # docker
 
 echo "Adding deb repos"
 # Comment these out after first run so as not to spam sources.list
@@ -35,12 +36,13 @@ add-apt-repository ppa:kilian/f.lux -y
 add-apt-repository 'deb http://cran.rstudio.com/bin/linux/ubuntu trusty/' -y
 add-apt-repository ppa:staticfloat/juliareleases -y
 add-apt-repository ppa:git-core/ppa -y
+add-apt-repository 'deb https://get.docker.com/ubuntu docker main/' -y
 
 echo "updating repositories"
 apt-get update
 
 echo "Installing packages"
-apt-get install build-essential curl docker.io fluxgui git-core golang google-chrome-stable julia libapparmor1 libcurl4-openssl-dev libjpeg62 libmysqlclient-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev lm-sensors mercurial mysql-server mysql-common mysql-client openjdk-7-jdk openvpn pgadmin3 postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3 python-bs4 python-software-properties qgis r-base rbenv ruby ruby-build ruby-dev spotify-client-qt sqlite3 tmux vim zlib1g-dev
+apt-get install build-essential curl fluxgui git-core golang google-chrome-stable julia libapparmor1 libcurl4-openssl-dev libjpeg62 libmysqlclient-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev lm-sensors lxc-docker mercurial mysql-server mysql-common mysql-client openjdk-7-jdk openvpn pgadmin3 postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3 python-bs4 python-software-properties qgis r-base rbenv ruby ruby-build ruby-dev spotify-client-qt sqlite3 tmux vim zlib1g-dev
 
 echo "Finished adding PPAs and installing applications"
 exit 0
