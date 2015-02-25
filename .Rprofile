@@ -2,7 +2,7 @@ options(
     "defaultPackages" = c(
         getOption("defaultPackages"),
         "plyr",
-        "reshape",
+        "reshape2",
         "ggplot2",
         "stringr",
         "lubridate"
