@@ -39,7 +39,7 @@ brew install ruby-build # rbenv ruby-dev
 
 # Other languages
 brew install hg go # Go uses mercurial, not 100% sure hg is necessary but whatevs
-brew cask install julia
+brew cask install java julia
 
 # SQL/DBs
 # mysql-server mysql-common mysql-client postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 pgadmin3 
