@@ -50,7 +50,7 @@ brew install postgresqli # this is kind of busted
 
 # Random
 brew install docker 
-brew cask install qgis tableau
+brew cask install qgis tableau slack
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
