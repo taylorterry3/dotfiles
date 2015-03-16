@@ -50,7 +50,7 @@ brew install postgresql # this is kind of busted
 
 # Random
 brew install docker 
-brew cask install qgis tableau slack
+brew cask install qgis robomongo slack tableau
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
