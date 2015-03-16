@@ -41,9 +41,10 @@ brew install ruby-build # rbenv ruby-dev
 brew install hg go # Go uses mercurial, not 100% sure hg is necessary but whatevs
 brew cask install julia
 
-# SQL/DBsi
+# SQL/DBs
 # mysql-server mysql-common mysql-client postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 pgadmin3 
-brew install postgresqli # this is kind of busted
+brew install postgresql # this is kind of busted
+brew cask install razorsql
 
 # All the libs
 # libapparmor1 libatlas-dev libcurl4-openssl-dev libffi-dev libfreetype6 libfreetype6-dev libhdf5-7 libhdf5-dev libjpeg62 liblapack-dev libmysqlclient-dev libpng12-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev zlib1g-dev
