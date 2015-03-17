@@ -15,6 +15,7 @@ echo "Manually downloading some installers"
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle
+git clone git://github.com/croaky/vim-colors-github.git ~/.vim/bundle
 
 echo "Installing packages"
 # I need to stop acting like a neckbeard and move this all to a brewfile
