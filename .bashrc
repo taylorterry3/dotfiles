@@ -88,6 +88,7 @@ fi
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
+alias pag='ps aux | grep'
 
 # header function
 alias header='head -1 | tr "\t" "\n" | nl'
