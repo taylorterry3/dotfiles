@@ -44,7 +44,7 @@ brew cask install java julia
 
 # SQL/DBs
 # mysql-server mysql-common mysql-client postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 pgadmin3 
-brew install postgresql # this is kind of busted
+brew install mysql postgresql # this is kind of busted
 brew cask install dbeaver-community
 
 # All the libs
