@@ -89,6 +89,7 @@ alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias pag='ps aux | grep'
+alias drive='cd ~/Google\ Drive'
 
 # header function
 alias header='head -1 | tr "\t" "\n" | nl'
