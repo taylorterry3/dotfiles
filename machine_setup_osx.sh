@@ -32,8 +32,8 @@ brew cask install flux sonos
 # Python (needs work)
 # brew cask install python-bs4 python-software-properties
 
-# R
-brew cask install r rstudio
+# R stuff. I use RRO so there is no R install here. May need to do that first since rstudio looks for R at /usr/bin/R and may hork if it's not there
+brew cask install rstudio
 
 # Ruby (needs work)
 brew install ruby-build # rbenv ruby-dev
