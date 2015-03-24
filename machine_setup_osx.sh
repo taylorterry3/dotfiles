@@ -52,7 +52,7 @@ brew cask install dbeaver-community
 
 # Random
 brew install docker 
-brew cask install qgis robomongo slack tableau
+brew cask install atom qgis robomongo slack tableau
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
