@@ -9,3 +9,8 @@ ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/.Rprofile ~/.Rprofile
 ln -s ~/dotfiles/.curlrc ~/.curlrc
 
+# check if on OSX and use .profile if so
+OS=`uname`
+if [ $OS = "Darwin" ]; then
+	ln -s ~/dotfiles/.profile ~/.profile
+fi
