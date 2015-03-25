@@ -90,6 +90,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias pag='ps aux | grep'
 alias drive='cd ~/Google\ Drive'
+ln -s ~/Google\ Drive gdrive # This is a little sloppy, but keeping it near the drive alias for sanity
 
 # header function
 alias header='head -1 | tr "\t" "\n" | nl'
