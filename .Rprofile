@@ -5,7 +5,11 @@ options(
         "reshape2",
         "ggplot2",
         "stringr",
-        "lubridate"
+        "lubridate",
+	"yaml",
+	"htmltools",
+	"caTools",
+	"rmarkdown"
     ),
     "repos" = c(CRAN = "http://cran.r-project.org/"),
     "scipen" = 10
