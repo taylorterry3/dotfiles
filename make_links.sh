@@ -8,6 +8,7 @@ ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/.Rprofile ~/.Rprofile
 ln -s ~/dotfiles/.curlrc ~/.curlrc
+ln -s ~/Google\ Drive gdrive
 
 # check if on OSX and use .profile if so
 OS=`uname`
