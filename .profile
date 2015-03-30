@@ -2,5 +2,4 @@
 
 source .bashrc
 export PS1="\w $ "
-alias htop='sudo htop
-'
+alias htop='sudo htop'
