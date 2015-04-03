@@ -2,7 +2,7 @@ set nocompatible
 
 set backspace=2
 
-set number relativenumber
+set number
 
 execute pathogen#infect()
 
