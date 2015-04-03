@@ -24,7 +24,7 @@ brew install brew-cask
 brew tap caskroom/cask
 
 # command line tools
-brew install curl tmux wget 
+brew install curl hub tmux wget 
 
 # creature comforts
 brew cask install flux sonos
