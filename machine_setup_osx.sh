@@ -48,12 +48,9 @@ brew cask install java julia
 brew install mysql postgresql # this is kind of busted
 brew cask install dbeaver-community
 
-# All the libs
-# libapparmor1 libatlas-dev libcurl4-openssl-dev libffi-dev libfreetype6 libfreetype6-dev libhdf5-7 libhdf5-dev libjpeg62 liblapack-dev libmysqlclient-dev libpng12-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev zlib1g-dev
-
 # Random
 brew install docker 
-brew cask install atom qgis robomongo slack tableau
+brew cask install atom qgis robomongo slack tableau textwrangler
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
