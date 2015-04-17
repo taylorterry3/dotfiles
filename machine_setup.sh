@@ -23,12 +23,6 @@ echo "Adding deb repos"
 echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
-echo "Manually downloading some installers\nBe careful, there is hardcoding to tterry here"
-
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-chown -R ~/.vim tterry
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
 echo "Adding PPAs"
 add-apt-repository ppa:marutter/rrutter -y
 add-apt-repository ppa:ubuntugis/ubuntugis-stable -y
@@ -45,4 +39,11 @@ echo "Installing packages"
 apt-get install build-essential curl fluxgui g++ git-core golang google-chrome-stable julia libapparmor1 libatlas-dev libcurl4-openssl-dev libffi-dev libfreetype6 libfreetype6-dev libhdf5-7 libhdf5-dev libjpeg62 liblapack-dev libmysqlclient-dev libpng12-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev  lm-sensors lxc-docker mercurial mysql-server mysql-common mysql-client openjdk-7-jdk openvpn pgadmin3 postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3 python-bs4 python-software-properties qgis r-base rbenv ruby ruby-build ruby-dev spotify-client-qt sqlite3 tmux vim zlib1g-dev
 
 echo "Finished adding PPAs and installing applications"
+
+echo "Manually downloading some installers\nBe careful, there is hardcoding to tterry here"
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+chown -R ~/.vim tterry
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 exit 0
