@@ -10,13 +10,6 @@
 # Put this line in .profile for RRO:
 # export RSTUDIO_WHICH_R=/usr/lib64/RRO-8.0/R-3.1.1/bin/R
 
-echo "Manually downloading some installers"
-
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle
-git clone git://github.com/croaky/vim-colors-github.git ~/.vim/bundle
-
 echo "Installing packages"
 # I need to stop acting like a neckbeard and move this all to a brewfile
 
@@ -56,4 +49,12 @@ brew cask install atom qgis robomongo slack tableau textwrangler
 brew update && brew upgrade brew-cask && brew cleanup
 
 echo "Finished adding PPAs and installing applications"
+
+echo "Manually downloading some installers"
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle
+git clone git://github.com/croaky/vim-colors-github.git ~/.vim/bundle
+
 exit 0
