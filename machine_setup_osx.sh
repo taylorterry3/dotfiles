@@ -43,7 +43,7 @@ brew cask install dbeaver-community
 
 # Random
 brew install docker 
-brew cask install atom basictex qgis robomongo slack tableau textwrangler
+brew cask install atom basictex data-integration qgis robomongo slack tableau textwrangler
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
