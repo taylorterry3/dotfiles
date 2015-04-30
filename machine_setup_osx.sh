@@ -42,7 +42,7 @@ brew install mysql postgresql # this is kind of busted
 brew cask install dbeaver-community
 
 # Random
-brew install docker 
+brew install docker maven
 brew cask install atom basictex data-integration paintbrush qgis robomongo slack tableau textwrangler
 
 # Cleanup
