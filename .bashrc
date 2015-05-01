@@ -84,12 +84,16 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+# some more aliases
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias pag='ps aux | grep'
 alias drive='cd ~/Google\ Drive'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
 
 # header function
 alias header='head -1 | tr "\t" "\n" | nl'
