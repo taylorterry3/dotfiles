@@ -147,3 +147,6 @@ check_venv() {
 
 # Homebrew/cask will put stuff in dumb places if you don't do this
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Awful hackage to do with latex.
+export PATH=/usr/texbin:$PATH
