@@ -38,12 +38,19 @@ brew cask install java julia
 
 # SQL/DBs
 # mysql-server mysql-common mysql-client postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 pgadmin3 
-brew install mysql postgresql mysqlworkbench # this is kind of busted
+brew install mysql postgresql mysqlworkbench robomongo # this is kind of busted
 brew cask install dbeaver-community
+
+# Editors and such
+brew cask install atom basictex textwrangler
+
+# Plumbing
+brew cask install nomachine ssh-tunnel-manager tunnelblick
 
 # Random
 brew install docker maven
-brew cask install atom basictex data-integration nomachine paintbrush qgis robomongo slack tableau textwrangler
+brew cask install data-integration paintbrush qgis slack tableau
+
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
