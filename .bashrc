@@ -91,8 +91,8 @@ alias l='ls -CF'
 alias pag='ps aux | grep'
 alias drive='cd ~/Google\ Drive'
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
 # header function
