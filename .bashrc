@@ -154,3 +154,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Awful hackage to do with latex.
 export PATH=/usr/texbin:$PATH
+
+# python venv home
+export WORKON_HOME=~/Envs
