@@ -23,8 +23,8 @@ brew install gnu-sed --with-default-names
 # creature comforts
 brew cask install flux sonos
 
-# Python (needs work)
-# brew cask install python-bs4 python-software-properties
+# Python3. OSX has 2.7 by default, but you need a version of 3 not tied to Anaconda for venv to not be painful
+brew install python3
 
 # R stuff. I use RRO so there is no R install here. May need to do that first since rstudio looks for R at /usr/bin/R and may hork if it's not there
 brew cask install rstudio
