@@ -29,8 +29,8 @@ brew install python3
 # R stuff. I use RRO so there is no R install here. May need to do that first since rstudio looks for R at /usr/bin/R and may hork if it's not there
 brew cask install rstudio
 
-# Ruby (needs work)
-brew install ruby-build # rbenv ruby-dev
+# Ruby
+brew install ruby-build rbenv
 
 # Other languages
 brew install hg go # Go uses mercurial, not 100% sure hg is necessary but whatevs

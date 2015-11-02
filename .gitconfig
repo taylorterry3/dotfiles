@@ -2,3 +2,7 @@
     name=Taylor Terry
     email=taylor.terry@gmail.com
 
+[credential]
+	helper = osxkeychain
+[push]
+	default = matching
