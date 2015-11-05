@@ -33,7 +33,7 @@ brew cask install rstudio
 brew install ruby-build rbenv
 
 # Other languages
-brew install hg go # Go uses mercurial, not 100% sure hg is necessary but whatevs
+brew install hg go scala # Go uses mercurial, not 100% sure hg is necessary but whatevs
 brew cask install java julia
 
 # SQL/DBs
