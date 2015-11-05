@@ -157,3 +157,7 @@ export PATH=/usr/texbin:$PATH
 
 # python venv home
 export WORKON_HOME=~/Envs
+
+# ruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
