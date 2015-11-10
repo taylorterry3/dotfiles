@@ -21,7 +21,7 @@ brew install cmake curl hub tmux wget
 brew install gnu-sed --with-default-names 
 
 # creature comforts
-brew cask install alfred flux sonos
+brew cask install alfred flux sonos spectacle
 
 # Python3. OSX has 2.7 by default, but you need a version of 3 not tied to Anaconda for venv to not be painful
 brew install python3
