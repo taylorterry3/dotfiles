@@ -108,7 +108,7 @@ alias resized='kill -WINCH $$'
 alias reconnect='sudo service network-manager restart'
 
 # Private content
-source .bashrc_private
+source ~/.bashrc_private
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
