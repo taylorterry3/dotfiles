@@ -49,8 +49,9 @@ brew cask install nomachine ssh-tunnel-manager tunnelblick
 
 # Random
 brew install docker maven
-brew cask install data-integration paintbrush qgis slack tableau
-
+brew cask install data-integration paintbrush qgis slack eableau
+brew install pandoc
+brew cask install mactex
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
