@@ -135,7 +135,7 @@ if ! shopt -oq posix; then
 fi
 
 # added by Anaconda3 2.0.1 installer
-export PATH=~/anaconda/bin:$PATH
+# export PATH=~/anaconda/bin:$PATH
 
 # https://gist.github.com/clneagu/7990272
 check_venv() {
