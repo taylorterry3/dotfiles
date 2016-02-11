@@ -45,13 +45,11 @@ brew cask install dbeaver-community
 brew cask install atom basictex textwrangler
 
 # Plumbing
-brew cask install nomachine ssh-tunnel-manager tunnelblick
+brew cask install ssh-tunnel-manager tunnelblick
 
 # Random
 brew install docker maven
-brew cask install data-integration paintbrush qgis slack tableau
-brew install pandoc
-brew cask install mactex
+brew cask install arduino data-integration paintbrush qgis slack tableau
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
