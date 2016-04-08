@@ -140,9 +140,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Awful hackage to do with latex.
 export PATH=/usr/texbin:$PATH
 
-# virtualenvwrapper used with pyenv
-# doing it this way because I won't need pyenv soon
-source ~/.pyenv/shims/virtualenvwrapper.sh
+# virtualenvwrapper, hacked a little
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
+source /usr/local/bin/virtualenvwrapper.sh
 
 # python venv home
 export WORKON_HOME=~/Envs
