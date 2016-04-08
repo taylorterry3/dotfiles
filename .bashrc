@@ -142,7 +142,7 @@ export PATH=/usr/texbin:$PATH
 
 # virtualenvwrapper used with pyenv
 # doing it this way because I won't need pyenv soon
-source /.pyenv/shims/virtualenvwrapper.sh
+source ~/.pyenv/shims/virtualenvwrapper.sh
 
 # python venv home
 export WORKON_HOME=~/Envs
