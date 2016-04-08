@@ -134,30 +134,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 2.0.1 installer
-# export PATH=~/anaconda/bin:$PATH
-
-# https://gist.github.com/clneagu/7990272
-check_venv() {
-    if [ -e .venv ]; then
-        env=`cat .venv`
-        if [ "$env" != "${VIRTUAL_ENV##/}" ]; then
-            echo "Found .venv in directory. Calling: workon ${env}"
-            workon $env
-        fi
-    fi
-
-}
-
 # Homebrew/cask will put stuff in dumb places if you don't do this
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Awful hackage to do with latex.
 export PATH=/usr/texbin:$PATH
 
+# virtualenvwrapper used with pyenv
+# doing it this way because I won't need pyenv soon
+source /.pyenv/shims/virtualenvwrapper.sh
+
 # python venv home
 export WORKON_HOME=~/Envs
 
-# ruby
+# rubyenv & pyenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
