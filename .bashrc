@@ -144,6 +144,9 @@ export PATH=/usr/texbin:$PATH
 export VIRTUALENVWRAPPER_PYTHON=`which python3`
 source /usr/local/bin/virtualenvwrapper.sh
 
+# autoenv
+source /usr/local/opt/autoenv/activate.sh
+
 # python venv home
 export WORKON_HOME=~/Envs
 
