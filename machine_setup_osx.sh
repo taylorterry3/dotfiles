@@ -26,6 +26,8 @@ brew cask install alfred flux sonos spectacle
 # Python3. OSX has 2.7 by default, but you need a version of 3 not tied to Anaconda for venv to not be painful
 brew install python3 pyenv autoenv
 
+brew cask install beaker
+
 # R stuff. I use RRO so there is no R install here. May need to do that first since rstudio looks for R at /usr/bin/R and may hork if it's not there
 brew cask install rstudio
 
