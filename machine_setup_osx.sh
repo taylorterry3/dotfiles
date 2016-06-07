@@ -1,7 +1,6 @@
 #!/bin/bash
 # Stuff that this doesn't do:
 # Git and xclip, as well as github key setup
-# Python setup
 # Ruby setup with rbenv: https://gorails.com/setup/ubuntu/14.04
 # R's devtools mess
 # OpenVPN
