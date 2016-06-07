@@ -55,7 +55,7 @@ brew cask install arduino data-integration paintbrush qgis slack tableau
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
 
-echo "Finished adding PPAs and installing applications"
+echo "Finished installing applications"
 
 echo "Manually downloading some installers"
 
