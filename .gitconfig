@@ -2,7 +2,8 @@
     name=Taylor Terry
     email=taylor.terry@gmail.com
 
-[credential]
-	helper = osxkeychain
+[github]
+    user = tayloterry3
+    token = $GITHUB_PAT
 [push]
-	default = matching
+	default = simple

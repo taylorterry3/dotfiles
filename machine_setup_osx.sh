@@ -48,7 +48,7 @@ brew cask install atom basictex textwrangler
 brew cask install ssh-tunnel-manager tunnelblick
 
 # Random
-brew install docker maven
+brew install docker hadoop maven
 brew cask install arduino data-integration paintbrush qgis slack tableau
 
 # Cleanup
