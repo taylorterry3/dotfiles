@@ -49,7 +49,7 @@ brew cask install ssh-tunnel-manager tunnelblick
 
 # Random
 brew install docker hadoop maven
-brew cask install arduino data-integration paintbrush qgis slack tableau
+brew cask install arduino data-integration paintbrush qgis screenhero slack tableau
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
