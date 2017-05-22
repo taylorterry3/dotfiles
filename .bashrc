@@ -151,13 +151,12 @@ source /usr/local/opt/autoenv/activate.sh
 export WORKON_HOME=~/Envs
 
 # rubyenv & pyenv
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# X stuff for ot 
+# X stuff for ot
 export PATH="$PATH:/usr/X11/bin"
 
 # Docker
 alias dclear='docker ps -a -q | xargs docker rm'
-alias dnuke='docker ps -a -q | xargs docker rm -f'
-
+alias dnuke='docker ps -a -q | grep -v consul | xargs docker rm -f'
