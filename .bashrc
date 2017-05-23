@@ -148,7 +148,13 @@ source /usr/local/bin/virtualenvwrapper.sh
 source /usr/local/opt/autoenv/activate.sh
 
 # python venv home
-export WORKON_HOME=~/Envs
+# need to simplify this but haven't decided which way I want to do it everywhere
+OS=`uname`
+if [ $OS = "Darwin" ]; then
+    export WORKON_HOME=~/Envs
+else
+    export WORKON_HOME=~/.virtualenvs
+fi
 
 # rubyenv & pyenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
