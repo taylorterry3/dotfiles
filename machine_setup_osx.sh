@@ -15,7 +15,7 @@ brew install brew-cask
 brew tap caskroom/cask
 
 # command line tools
-brew install cmake curl hub tmux the_silver_searcher tree wget
+brew install bfg cmake curl hub tmux the_silver_searcher tree wget
 brew install gnu-sed --with-default-names 
 
 # creature comforts
