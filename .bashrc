@@ -165,4 +165,6 @@ export PATH="$PATH:/usr/X11/bin"
 
 # Docker
 alias dclear='docker ps -a -q | xargs docker rm'
+alias dlastlog='docker ps -q | sed -n "2p" | xargs docker logs'
 alias dnuke='docker ps -a -q | grep -v consul | xargs docker rm -f'
+alias dps='docker ps --format "table {{.ID}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Names}}"'
