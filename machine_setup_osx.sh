@@ -22,7 +22,7 @@ brew install gnu-sed --with-default-names
 brew cask install alfred flux sonos spectacle
 
 # Python3. OSX has 2.7 by default, but you need a version of 3 not tied to Anaconda for venv to not be painful
-brew install python3 pyenv autoenv
+brew install python3 pyenv pyenv-virtualenv
 
 brew cask install beaker
 
@@ -49,7 +49,7 @@ brew cask install openconnect-gui ssh-tunnel-manager tunnelblick
 
 # Random
 brew install docker hadoop maven
-brew cask install arduino data-integration paintbrush qgis screenhero slack tableau
+brew cask install arduino data-integration google-drive-file-stream paintbrush qgis screenhero slack tableau
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
