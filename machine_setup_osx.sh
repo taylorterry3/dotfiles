@@ -15,14 +15,14 @@ brew install brew-cask
 brew tap caskroom/cask
 
 # command line tools
-brew install cmake curl hub tmux the_silver_searcher tree wget
+brew install bfg cmake curl hub tmux the_silver_searcher tree wget
 brew install gnu-sed --with-default-names 
 
 # creature comforts
 brew cask install alfred flux sonos spectacle
 
 # Python3. OSX has 2.7 by default, but you need a version of 3 not tied to Anaconda for venv to not be painful
-brew install python3 pyenv autoenv
+brew install python3 pyenv pyenv-virtualenv
 
 brew cask install beaker
 
@@ -45,11 +45,11 @@ brew cask install dbeaver-community
 brew cask install atom basictex textwrangler
 
 # Plumbing
-brew cask install ssh-tunnel-manager tunnelblick
+brew cask install openconnect-gui ssh-tunnel-manager tunnelblick
 
 # Random
 brew install docker hadoop maven
-brew cask install arduino data-integration paintbrush qgis screenhero slack tableau
+brew cask install arduino data-integration google-drive-file-stream paintbrush qgis screenhero slack tableau
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
