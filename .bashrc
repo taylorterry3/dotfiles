@@ -144,9 +144,6 @@ export PATH=/usr/texbin:$PATH
 export VIRTUALENVWRAPPER_PYTHON=`which python3`
 source /usr/local/bin/virtualenvwrapper.sh
 
-# autoenv
-source /usr/local/opt/autoenv/activate.sh
-
 # python venv home
 # need to simplify this but haven't decided which way I want to do it everywhere
 OS=`uname`
@@ -158,7 +155,10 @@ fi
 
 # rubyenv & pyenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # X stuff for ot
 export PATH="$PATH:/usr/X11/bin"
