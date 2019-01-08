@@ -1,6 +1,5 @@
 #!/bin/bash
 # Stuff that this doesn't do:
-# Git and xclip, as well as github key setup
 # Ruby setup with rbenv: https://gorails.com/setup/ubuntu/14.04
 # R's devtools mess
 # OpenVPN
@@ -10,9 +9,6 @@
 
 echo "Installing packages"
 # I need to stop acting like a neckbeard and move this all to a brewfile
-
-brew install brew-cask
-brew tap caskroom/cask
 
 # command line tools
 brew install bfg cmake curl hub tmux the_silver_searcher tree wget zlib
@@ -36,7 +32,7 @@ brew cask install java julia
 
 # SQL/DBs
 # mysql-server mysql-common mysql-client postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 pgadmin3
-brew install mongo mysql mysqlworkbench postgresql robo-3t
+brew install mongo mysql-client mysqlworkbench postgresql robo-3t
 brew cask install dbeaver-community
 
 # Editors and such
