@@ -16,15 +16,13 @@ brew tap caskroom/cask
 
 # command line tools
 brew install bfg cmake curl hub tmux the_silver_searcher tree wget zlib
-brew install gnu-sed --with-default-names 
+brew install gnu-sed --with-default-names
 
 # creature comforts
 brew cask install alfred flux sonos spectacle
 
-# Python3. OSX has 2.7 by default, but you need a version of 3 not tied to Anaconda for venv to not be painful
-brew install python3 pyenv pyenv-virtualenv
-
-brew cask install beaker
+# Python stuff
+brew install pipenv pyenv
 
 # R stuff. I use RRO so there is no R install here. May need to do that first since rstudio looks for R at /usr/bin/R and may hork if it's not there
 brew cask install rstudio
@@ -37,26 +35,27 @@ brew install hg go scala # Go uses mercurial, not 100% sure hg is necessary but 
 brew cask install java julia
 
 # SQL/DBs
-# mysql-server mysql-common mysql-client postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 pgadmin3 
-brew install mongo mysql mysqlworkbench postgresql robomongo # this is kind of busted
+# mysql-server mysql-common mysql-client postgresql-9.4 postgresql-contrib-9.4 postgresql-server-dev-9.4 pgadmin3
+brew install mongo mysql mysqlworkbench postgresql robo-3t
 brew cask install dbeaver-community
 
 # Editors and such
-brew cask install atom basictex textwrangler
+brew cask install atom basictex textwrangler visual-studio-code
 
 # Plumbing
 brew cask install openconnect-gui ssh-tunnel-manager tunnelblick
 
 # Random
 brew install docker hadoop maven
-brew cask install arduino data-integration google-drive-file-stream paintbrush qgis screenhero slack tableau
+brew cask install arduino paintbrush qgis
+brew cask install google-drive-file-stream slack tableau
 
 # Cleanup
 brew update && brew upgrade brew-cask && brew cleanup
 
 echo "Finished installing applications"
 
-echo "Manually downloading some installers"
+echo "Manually downloading some vim stuff"
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
