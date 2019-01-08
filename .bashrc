@@ -137,24 +137,17 @@ fi
 # Homebrew/cask will put stuff in dumb places if you don't do this
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# Awful hackage to do with latex.
-export PATH=/usr/texbin:$PATH
-
-# virtualenvwrapper, hacked a little
-export VIRTUALENVWRAPPER_PYTHON=`which python3`
-source /usr/local/bin/virtualenvwrapper.sh
-
 # autoenv
 # source /usr/local/opt/autoenv/activate.sh
 
 # python venv home
 # need to simplify this but haven't decided which way I want to do it everywhere
-OS=`uname`
-if [ $OS = "Darwin" ]; then
-    export WORKON_HOME=~/Envs
-else
-    export WORKON_HOME=~/.virtualenvs
-fi
+# OS=`uname`
+# if [ $OS = "Darwin" ]; then
+#     export WORKON_HOME=~/Envs
+# else
+#     export WORKON_HOME=~/.virtualenvs
+# fi
 
 # rubyenv & pyenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -169,5 +162,9 @@ export PATH="$PATH:/usr/X11/bin"
 # Docker
 alias dclear='docker ps -a -q | xargs docker rm'
 alias dlastlog='docker ps -q | sed -n "2p" | xargs docker logs'
-alias dnuke='docker ps -a -q | grep -v consul | xargs docker rm -f'
+# alias dnuke='docker ps -a -q | grep -v consul | xargs docker rm -f' # useful, but dangerous
 alias dps='docker ps --format "table {{.ID}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Names}}"'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
