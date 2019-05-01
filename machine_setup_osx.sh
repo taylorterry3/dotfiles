@@ -20,14 +20,15 @@ brew cask install alfred flux sonos spectacle
 # Python stuff
 brew install pipenv pyenv
 
-# R stuff. I use RRO so there is no R install here. May need to do that first since rstudio looks for R at /usr/bin/R and may hork if it's not there
+# R stuff
+brew install R
 brew cask install rstudio
 
 # Ruby
 brew install ruby-build rbenv
 
 # Other languages
-brew install hg go scala # Go uses mercurial, not 100% sure hg is necessary but whatevs
+brew install go scala
 brew cask install java julia
 
 # SQL/DBs
@@ -36,14 +37,13 @@ brew install mongo mysql-client mysqlworkbench postgresql robo-3t
 brew cask install dbeaver-community
 
 # Editors and such
-brew cask install atom basictex textwrangler visual-studio-code
+brew cask install visual-studio-code
 
 # Plumbing
-brew cask install openconnect-gui ssh-tunnel-manager tunnelblick
+brew cask install ssh-tunnel-manager
 
 # Random
-brew install docker hadoop maven
-brew cask install arduino paintbrush qgis
+brew cask install arduino paintbrush 
 brew cask install google-drive-file-stream slack tableau
 
 # Cleanup
@@ -53,9 +53,9 @@ echo "Finished installing applications"
 
 echo "Manually downloading some vim stuff"
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle
-git clone git://github.com/croaky/vim-colors-github.git ~/.vim/bundle
+# mkdir -p ~/.vim/autoload ~/.vim/bundle
+# curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+# git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle
+# git clone git://github.com/croaky/vim-colors-github.git ~/.vim/bundle
 
 exit 0
