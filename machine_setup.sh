@@ -8,7 +8,12 @@ echo "updating repositories"
 sudo apt update
 
 echo "Installing packages"
-sudo apt install build-essential gcc golang libbz2-dev libffi-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client screen xclip zlib1g-dev
+
+# strictly needed for a python data science environment
+sudo apt install build-essential gcc libbz2-dev libffi-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client zlib1g-dev
+
+# other stuff
+sudo apt install golang screen xclip
 
 echo "Finished adding PPAs and installing applications"
 
