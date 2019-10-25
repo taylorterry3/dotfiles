@@ -149,8 +149,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 #     export WORKON_HOME=~/.virtualenvs
 # fi
 
-# rubyenv & pyenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# pyenv
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
