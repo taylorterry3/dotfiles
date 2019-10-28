@@ -10,17 +10,25 @@ sudo apt update
 echo "Installing packages"
 
 # strictly needed for a python data science environment
-sudo apt install build-essential gcc libbz2-dev libffi-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client zlib1g-dev
+sudo apt install build-essential gcc libbz2-dev libffi-dev liblzma-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client zlib1g-dev
 
 # other stuff
-sudo apt install golang screen xclip
+sudo apt install golang htop screen xclip
 
 echo "Finished adding PPAs and installing applications"
 
 echo "Setting up pyenv"
 
+# Python setup
+# If re-running after an error you'll need to `rm -rf ~/.pyenv`
 curl https://pyenv.run | bash
-exec $SHELL
+eval "$(pyenv init -)"
 pyenv update
+pyenv install 3.8.0
+pyenv global 3.8.0
+
+pip install --upgrade pip
+pip install awscli
+
 
 exit 0
