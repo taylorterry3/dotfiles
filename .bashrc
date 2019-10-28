@@ -59,7 +59,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\w $ '
 fi
 unset color_prompt force_color_prompt
 
@@ -98,15 +98,6 @@ alias .....='cd ../../../../'
 # header function
 alias header='head -1 | tr "\t" "\n" | nl'
 
-# Git aliases
-alias gpom='git push origin master'
-
-# Cygwin-specific aliases
-alias resized='kill -WINCH $$'
-
-# Useful for forcing Ubuntu VM to reset its network connections after connecting to VPN on the host machine
-alias reconnect='sudo service network-manager restart'
-
 # Private content
 source ~/.bashrc_private
 
@@ -115,8 +106,6 @@ source ~/.bashrc_private
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
@@ -137,27 +126,13 @@ fi
 # Homebrew/cask will put stuff in dumb places if you don't do this
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# autoenv
-# source /usr/local/opt/autoenv/activate.sh
-
-# python venv home
-# need to simplify this but haven't decided which way I want to do it everywhere
-# OS=`uname`
-# if [ $OS = "Darwin" ]; then
-#     export WORKON_HOME=~/Envs
-# else
-#     export WORKON_HOME=~/.virtualenvs
-# fi
-
-# rubyenv & pyenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# X stuff for ot
-export PATH="$PATH:/usr/X11/bin"
+# Go
+export PATH=$PATH:/usr/local/go/bin
 
 # Docker
 alias dclear='docker ps -a -q | xargs docker rm'
