@@ -10,7 +10,7 @@ sudo apt update
 echo "Installing packages"
 
 # strictly needed for a python data science environment
-sudo apt install build-essential gcc libbz2-dev libffi-dev liblzma-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client zlib1g-dev
+sudo apt install build-essential cython gcc gfortran libbz2-dev libffi-dev libfreetype6-dev liblapack-dev liblzma-dev libopenblas-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client python3-dev zlib1g-dev
 
 # other stuff
 sudo apt install golang htop screen xclip
