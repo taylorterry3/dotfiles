@@ -12,12 +12,15 @@ echo "Installing packages"
 # strictly needed for a python data science environment
 sudo apt install build-essential cython gcc gfortran libbz2-dev libffi-dev libfreetype6-dev liblapack-dev liblzma-dev libopenblas-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client python3-dev zlib1g-dev
 
+# needed for R
+sudo apt install libcurl4-openssl-dev libxt-dev libx11-dev
+
 # other stuff
 sudo apt install golang htop screen xclip
 
 echo "Finished adding PPAs and installing applications"
 
-echo "Setting up pyenv"
+echo "Setting up Python"
 
 # Python setup
 # If re-running after an error you'll need to `rm -rf ~/.pyenv`
@@ -30,5 +33,18 @@ pyenv global 3.8.0
 pip install --upgrade pip
 pip install awscli
 
+echo "Setting up R"
+
+# R Setup
+# from https://github.com/viking/Renv#section_2
+# and https://github.com/viking/R-build
+cd
+git clone git://github.com/viking/Renv.git .Renv
+eval "$(Renv init -)"
+mkdir -p ~/.Renv/plugins
+cd ~/.Renv/plugins
+git clone git://github.com/viking/R-build.git
+Renv install 3.6.1
+Renv global 3.6.1
 
 exit 0
