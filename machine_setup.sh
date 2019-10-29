@@ -13,7 +13,7 @@ echo "Installing packages"
 sudo apt install build-essential cython gcc gfortran libbz2-dev libffi-dev libfreetype6-dev liblapack-dev liblzma-dev libopenblas-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client python3-dev zlib1g-dev
 
 # needed for R
-sudo apt install libcurl4-openssl-dev libxt-dev libx11-dev
+sudo apt install libclang-dev libcurl4-openssl-dev libxt-dev libx11-dev
 
 # other stuff
 sudo apt install golang htop screen xclip
@@ -46,5 +46,8 @@ cd ~/.Renv/plugins
 git clone git://github.com/viking/R-build.git
 Renv install 3.6.1
 Renv global 3.6.1
+
+wget https://download1.rstudio.org/desktop/debian9/x86_64/rstudio-1.2.5001-amd64.deb
+sudo dpkg -i rstudio-1.2.5001-amd64.deb 
 
 exit 0
