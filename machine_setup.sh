@@ -46,7 +46,7 @@ cd ~/.Renv/plugins
 git clone git://github.com/viking/R-build.git
 Renv install 3.6.1
 Renv global 3.6.1
-
+cd
 wget https://download1.rstudio.org/desktop/debian9/x86_64/rstudio-1.2.5001-amd64.deb
 sudo dpkg -i rstudio-1.2.5001-amd64.deb 
 
