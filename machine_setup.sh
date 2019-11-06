@@ -13,7 +13,7 @@ echo "Installing packages"
 sudo apt install build-essential cython gcc gfortran libbz2-dev libffi-dev libfreetype6-dev liblapack-dev liblzma-dev libopenblas-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client python3-dev zlib1g-dev
 
 # needed for R
-sudo apt install libclang-dev libcurl4-openssl-dev libxt-dev libx11-dev
+sudo apt install libclang-dev libcurl4-openssl-dev libxt-dev libx11-dev libxml2-dev
 
 # other stuff
 sudo apt install golang htop screen xclip
