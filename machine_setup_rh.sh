@@ -8,14 +8,13 @@ echo "updating repositories"
 echo "Installing packages"
 
 # strictly needed for a python data science environment
-# sudo apt install build-essential cython gcc gfortran libbz2-dev libffi-dev libfreetype6-dev liblapack-dev liblzma-dev libopenblas-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client python3-dev zlib1g-dev
+sudo yum install libpng-devel
 
 # needed for R
-#sudo apt install libclang-dev libcurl4-openssl-dev libxt-dev libx11-dev libxml2-dev libzip4 r-base
-sudo yum install libcurl-devel libxt-devel readline-devel
+sudo yum install cairo-devel libcurl-devel libxt-devel readline-devel
 
 # other stuff
-# sudo apt install golang htop screen xclip
+sudo yum install jq
 
 echo "Finished adding PPAs and installing applications"
 
