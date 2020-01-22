@@ -1,18 +1,7 @@
 options(
-    "defaultPackages" = c(
-        getOption("defaultPackages"),
-        "plyr",
-        "reshape2",
-        "ggplot2",
-        "stringr",
-        "lubridate",
-	"yaml",
-	"htmltools",
-	"caTools",
-	"rmarkdown"
-    ),
     "repos" = c(CRAN = "http://cran.r-project.org/"),
-    "scipen" = 10
+    "scipen" = 10,
+    "device" = "postscript" # this makes jupyter work headless
 )
 
 gimme <- function(pkg) {
