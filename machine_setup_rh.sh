@@ -11,7 +11,9 @@ echo "Installing packages"
 sudo yum install libpng-devel
 
 # needed for R
-sudo yum install cairo-devel libcurl-devel libxt-devel readline-devel
+sudo yum install libff-devel openssl-devel
+
+sudo yum install cairo-devel libcurl-devel libX11-devel libXt-devel readline-devel
 
 # other stuff
 sudo yum install jq
