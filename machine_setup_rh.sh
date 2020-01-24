@@ -25,7 +25,9 @@ echo "Setting up Python"
 # Python setup
 # If re-running after an error you'll need to `rm -rf ~/.pyenv`
 curl https://pyenv.run | bash
+export PATH="/home/ec2-user/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 pyenv update
 pyenv install 3.8.0
 pyenv global 3.8.0
