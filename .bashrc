@@ -136,7 +136,8 @@ export PATH="$HOME/.Renv/bin:$PATH"
 if which Renv > /dev/null; then eval "$(Renv init -)"; fi
 
 # Go
-export PATH=$PATH:/usr/local/go/bin
+export PATH=/usr/local/go/bin:$PATH
+export GOROOT=/usr/local/go
 
 # Docker
 alias dclear='docker ps -a -q | xargs docker rm'
