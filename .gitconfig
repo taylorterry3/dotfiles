@@ -3,7 +3,7 @@
     email=taylor.terry@gmail.com
 
 [github]
-    user = tayloterry3
+    user = taylorterry3
     token = $GITHUB_PAT
 [push]
 	default = simple
