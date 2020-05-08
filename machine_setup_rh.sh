@@ -10,6 +10,9 @@ echo "Installing packages"
 # strictly needed for a python data science environment
 sudo yum install libpng-devel
 
+# pyodbc dependency
+sudo yum install unixODBC-devel
+
 # needed for R
 sudo yum install libffi-devel openssl-devel
 
