@@ -12,6 +12,9 @@ echo "Installing packages"
 # strictly needed for a python data science environment
 sudo apt install build-essential cython gcc gfortran libbz2-dev libffi-dev libfreetype6-dev liblapack-dev liblzma-dev libopenblas-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev postgresql-client python3-dev zlib1g-dev
 
+# pyodby dependency
+sudo apt install unixodbc-dev
+
 # needed for R
 sudo apt install libclang-dev libcurl4-openssl-dev libxt-dev libx11-dev libxml2-dev libzip4 r-base
 
