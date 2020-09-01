@@ -132,12 +132,13 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # R
-export PATH="$HOME/.Renv/bin:$PATH"
-if which Renv > /dev/null; then eval "$(Renv init -)"; fi
+# export PATH="$HOME/.Renv/bin:$PATH"
+# if which Renv > /dev/null; then eval "$(Renv init -)"; fi
 
 # Go
-export PATH=/usr/local/go/bin:$PATH
+export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
+export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Docker
 alias dclear='docker ps -a -q | xargs docker rm'
