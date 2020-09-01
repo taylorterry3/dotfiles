@@ -21,6 +21,10 @@ sudo yum install cairo-devel libcurl-devel libX11-devel libXt-devel readline-dev
 # other stuff
 sudo yum install jq
 
+# libpostal
+sudo yum install autoconf automake libtool pkg-config
+
+
 echo "Finished adding PPAs and installing applications"
 
 echo "Setting up Python"
