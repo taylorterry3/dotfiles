@@ -126,10 +126,7 @@ fi
 # Homebrew/cask will put stuff in dumb places if you don't do this
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+eval "$(pyenv init -)"
 
 # R
 # export PATH="$HOME/.Renv/bin:$PATH"
