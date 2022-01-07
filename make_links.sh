@@ -3,6 +3,7 @@
 # makes symlinks in home dir to dotfiles dir.
 
 ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.bashrc ~/.zshrc
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/jupyter_notebook_config.py ~/.jupyter/jupyter_notebook_config.py
 ln -s ~/dotfiles/.profile ~/.profile

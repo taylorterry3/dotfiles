@@ -1,4 +1,5 @@
 # Top-level file that only exists because of the sourcing order of various OS'es
+# Only runs in bash
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
