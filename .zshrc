@@ -75,7 +75,13 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Homebrew/cask will put stuff in dumb places if you don't do this
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # R
 # export PATH="$HOME/.Renv/bin:$PATH"
@@ -91,3 +97,18 @@ alias dclear='docker ps -a -q | xargs docker rm'
 alias dlastlog='docker ps -q | sed -n "2p" | xargs docker logs'
 # alias dnuke='docker ps -a -q | grep -v consul | xargs docker rm -f' # useful, but dangerous
 alias dps='docker ps --format "table {{.ID}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Names}}"'
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/Caskroom/mambaforge/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

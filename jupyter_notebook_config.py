@@ -884,5 +884,5 @@ def post_save(model, os_path, contents_manager):
     #         if line.startswith('# In['):
     #             line = re.sub('[0-9]+', '', line)
     #         print(line, end='')
-
-c.FileContentsManager.post_save_hook = post_save
+# 
+# c.FileContentsManager.post_save_hook = post_save
