@@ -1,4 +1,4 @@
-export PROMPT='%~ %# '
+# export PROMPT=''
 
 # If not running interactively, don't do anything
 case $- in
@@ -249,7 +249,7 @@ eval "$(pyenv virtualenv-init -)"
 
 # Go
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
+# export GOROOT=/usr/local/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Docker
@@ -272,3 +272,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/taylorterry/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taylorterry/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/taylorterry/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taylorterry/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+
+export DYLD_LIBRARY_PATH="/opt/homebrew/opt/gdal/lib:$DYLD_LIBRARY_PATH"
+export PATH="$HOME/.local/bin:$PATH"

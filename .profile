@@ -9,3 +9,4 @@ eval "$(pyenv init --path)"
 source ~/.bashrc
 
 export PS1="\w $ "
+. "$HOME/.cargo/env"
