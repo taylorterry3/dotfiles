@@ -160,10 +160,16 @@ wt-new() {
 
 # Remove a worktree and its local branch.
 wt-rm() {
+    local force=0
     local target_path branch_name main_repo current_path
 
+    if [[ "$1" == "-f" ]]; then
+        force=1
+        shift
+    fi
+
     if (( $# > 1 )); then
-        print -u2 "Usage: wt-rm [worktree-path]"
+        print -u2 "Usage: wt-rm [-f] [worktree-path]"
         return 2
     fi
 
@@ -192,10 +198,34 @@ wt-rm() {
     main_repo=$(git -C "$target_path" worktree list --porcelain |
         awk '/^worktree / { print substr($0, 10); exit }') || return 1
 
-    builtin cd -- "$main_repo" || return 1
-    git worktree remove --force "$target_path" || return 1
-    git worktree prune || return 1
-    git branch -D -- "$branch_name"
+    [[ "$target_path" != "$main_repo" ]] || {
+        print -u2 "wt-rm: refusing to remove the main worktree"
+        return 1
+    }
+
+    current_path="${PWD:A}"
+    if [[ "$current_path" == "$target_path" || "$current_path" == "$target_path/"* ]]; then
+        builtin cd -- "$main_repo" || return 1
+    fi
+
+    if (( force )); then
+        git -C "$main_repo" worktree remove --force "$target_path" || return 1
+    else
+        if ! git -C "$main_repo" merge-base --is-ancestor "$branch_name" HEAD; then
+            print -u2 "wt-rm: branch '$branch_name' is not merged into the main checkout; use wt-rm -f to override"
+            return 1
+        fi
+        if ! git -C "$main_repo" worktree remove "$target_path"; then
+            print -u2 "wt-rm: worktree was not removed (it may contain uncommitted or untracked files); inspect it or use wt-rm -f to override"
+            return 1
+        fi
+    fi
+    git -C "$main_repo" worktree prune || return 1
+    if (( force )); then
+        git -C "$main_repo" branch -D -- "$branch_name"
+    else
+        git -C "$main_repo" branch -d -- "$branch_name"
+    fi
 }
 
 # Add an "alert" alias for long running commands.  Use like so:

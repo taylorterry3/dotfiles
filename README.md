@@ -38,10 +38,12 @@ profile.
 
 Remove a worktree from inside it, or pass its path explicitly:
 
-    wt-rm [worktree-path]
+    wt-rm [-f] [worktree-path]
 
-This refuses to remove a dirty worktree or an unmerged branch. On success, it
-prunes stale worktree metadata and deletes the local branch.
+Without `-f`, this refuses to remove a dirty worktree or a branch not merged
+into the main checkout. Use `-f` only when you deliberately want to discard
+worktree changes and delete an unmerged branch. On success, it prunes stale
+worktree metadata and deletes the local branch.
 
 Reload after installing the change:
 
