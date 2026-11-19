@@ -72,9 +72,13 @@ source ~/.zshrc_private
 code() {
     local target="${1:-.}"
     local target_path="${target:A}"
+    local projects_root="${HOME}/projects"
     local client_path client client_root
 
-    client_path="${target_path#$HOME/projects/}"
+    # For option-only calls such as `code -n`, use the current directory.
+    [[ "$target" == -* ]] && target_path="${PWD:A}"
+    projects_root="${projects_root:A}"
+    client_path="${target_path#$projects_root/}"
     if [[ "$client_path" != "$target_path" && "$client_path" == */* ]]; then
         client="${client_path%%/*}"
         client_root="$HOME/.vscode-clients/$client"
@@ -111,7 +115,7 @@ wt-new() {
         awk '/^worktree / { print substr($0, 10); exit }') || return 1
 
     repo_name="${main_repo:t}"
-    repo_parent="${main_repo:h}"
+    repo_parent="${repo_root:h}"
     if [[ "${repo_parent:t}" == "worktrees" ]]; then
         client_dir="${repo_parent:h}"
     else
@@ -119,8 +123,14 @@ wt-new() {
     fi
 
     if git -C "$main_repo" remote get-url origin >/dev/null 2>&1; then
-        git -C "$main_repo" fetch origin "$base_branch" || return 1
-        base_ref="origin/$base_branch"
+        if git -C "$main_repo" fetch origin "$base_branch"; then
+            base_ref="origin/$base_branch"
+        elif git -C "$main_repo" rev-parse --verify --quiet "$base_branch^{commit}" >/dev/null; then
+            print -u2 "wt-new: could not fetch origin/$base_branch; using local $base_branch"
+        else
+            print -u2 "wt-new: base branch '$base_branch' was not found locally or on origin"
+            return 1
+        fi
     fi
     git -C "$main_repo" rev-parse --verify --quiet "$base_ref^{commit}" >/dev/null || {
         print -u2 "wt-new: base branch '$base_branch' was not found"
@@ -130,20 +140,27 @@ wt-new() {
     safe_branch="${branch_name//\//-}"
     wt_path="$client_dir/worktrees/$repo_name-$safe_branch"
     mkdir -p "$client_dir/worktrees" || return 1
-    git -C "$main_repo" worktree add -b "$branch_name" "$wt_path" "$base_ref" || return 1
+    git -C "$main_repo" branch --no-track "$branch_name" "$base_ref" || return 1
+    if ! git -C "$main_repo" worktree add "$wt_path" "$branch_name"; then
+        git -C "$main_repo" branch -D -- "$branch_name" >/dev/null 2>&1
+        return 1
+    fi
 
     while IFS= read -r env_file; do
         [[ "$env_file" == */* || "$env_file" == ".env.example" ]] && continue
         [[ -f "$main_repo/$env_file" ]] || continue
         cp -p "$main_repo/$env_file" "$wt_path/$env_file" || return 1
-    done < <(git -C "$main_repo" ls-files --others --exclude-standard -- '.env*')
+    done < <(
+        git -C "$main_repo" ls-files --others --exclude-standard -- '.env*'
+        git -C "$main_repo" ls-files --others --ignored --exclude-standard -- '.env*'
+    )
 
     code "$wt_path"
 }
 
 # Remove a worktree and its local branch.
 wt-rm() {
-    local target_path branch_name main_repo
+    local target_path branch_name main_repo current_path
 
     if (( $# > 1 )); then
         print -u2 "Usage: wt-rm [worktree-path]"
@@ -151,7 +168,10 @@ wt-rm() {
     fi
 
     if (( $# == 1 )); then
-        target_path="${1:A}"
+        target_path=$(git -C "$1" rev-parse --show-toplevel 2>/dev/null) || {
+            print -u2 "wt-rm: '$1' is not inside a Git worktree"
+            return 1
+        }
     else
         target_path=$(git rev-parse --show-toplevel 2>/dev/null) || {
             print -u2 "wt-rm: not inside a Git repository"
