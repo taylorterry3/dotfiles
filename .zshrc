@@ -68,6 +68,166 @@ alias header='head -1 | tr "\t" "\n" | nl'
 # Private content
 source ~/.zshrc_private
 
+# Open VS Code with a profile isolated per client under ~/projects/<client>/.
+code() {
+    local target="${1:-.}"
+    local target_path="${target:A}"
+    local projects_root="${HOME}/projects"
+    local client_path client client_root
+
+    # For option-only calls such as `code -n`, use the current directory.
+    [[ "$target" == -* ]] && target_path="${PWD:A}"
+    projects_root="${projects_root:A}"
+    client_path="${target_path#$projects_root/}"
+    if [[ "$client_path" != "$target_path" && "$client_path" == */* ]]; then
+        client="${client_path%%/*}"
+        client_root="$HOME/.vscode-clients/$client"
+
+        mkdir -p "$client_root/vscode-data" "$client_root/codex-home" || return 1
+        CODEX_HOME="$client_root/codex-home" command code \
+            --user-data-dir "$client_root/vscode-data" \
+            --extensions-dir "$HOME/.vscode/extensions" \
+            "$@"
+        return
+    fi
+
+    command code "$@"
+}
+
+# Create a client-scoped Git worktree and open it in VS Code.
+wt-new() {
+    if (( $# < 1 || $# > 2 )); then
+        print -u2 "Usage: wt-new <branch-name> [base-branch]"
+        return 2
+    fi
+
+    local branch_name="$1"
+    local base_branch="${2:-main}"
+    local repo_root main_repo repo_name repo_parent client_dir
+    local base_ref="$base_branch"
+    local safe_branch wt_path env_file
+
+    repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+        print -u2 "wt-new: not inside a Git repository"
+        return 1
+    }
+    main_repo=$(git -C "$repo_root" worktree list --porcelain |
+        awk '/^worktree / { print substr($0, 10); exit }') || return 1
+
+    repo_name="${main_repo:t}"
+    repo_parent="${repo_root:h}"
+    if [[ "${repo_parent:t}" == "worktrees" ]]; then
+        client_dir="${repo_parent:h}"
+    else
+        client_dir="$repo_parent"
+    fi
+
+    if git -C "$main_repo" remote get-url origin >/dev/null 2>&1; then
+        if git -C "$main_repo" fetch origin "$base_branch"; then
+            base_ref="origin/$base_branch"
+        elif git -C "$main_repo" rev-parse --verify --quiet "$base_branch^{commit}" >/dev/null; then
+            print -u2 "wt-new: could not fetch origin/$base_branch; using local $base_branch"
+        else
+            print -u2 "wt-new: base branch '$base_branch' was not found locally or on origin"
+            return 1
+        fi
+    fi
+    git -C "$main_repo" rev-parse --verify --quiet "$base_ref^{commit}" >/dev/null || {
+        print -u2 "wt-new: base branch '$base_branch' was not found"
+        return 1
+    }
+
+    safe_branch="${branch_name//\//-}"
+    wt_path="$client_dir/worktrees/$repo_name-$safe_branch"
+    mkdir -p "$client_dir/worktrees" || return 1
+    git -C "$main_repo" branch --no-track "$branch_name" "$base_ref" || return 1
+    if ! git -C "$main_repo" worktree add "$wt_path" "$branch_name"; then
+        git -C "$main_repo" branch -D -- "$branch_name" >/dev/null 2>&1
+        return 1
+    fi
+
+    while IFS= read -r env_file; do
+        [[ "$env_file" == */* || "$env_file" == ".env.example" ]] && continue
+        [[ -f "$main_repo/$env_file" ]] || continue
+        cp -p "$main_repo/$env_file" "$wt_path/$env_file" || return 1
+    done < <(
+        git -C "$main_repo" ls-files --others --exclude-standard -- '.env*'
+        git -C "$main_repo" ls-files --others --ignored --exclude-standard -- '.env*'
+    )
+
+    code "$wt_path"
+}
+
+# Remove a worktree and its local branch.
+wt-rm() {
+    local force=0
+    local target_path branch_name main_repo current_path
+
+    if [[ "$1" == "-f" ]]; then
+        force=1
+        shift
+    fi
+
+    if (( $# > 1 )); then
+        print -u2 "Usage: wt-rm [-f] [worktree-path]"
+        return 2
+    fi
+
+    if (( $# == 1 )); then
+        target_path=$(git -C "$1" rev-parse --show-toplevel 2>/dev/null) || {
+            print -u2 "wt-rm: '$1' is not inside a Git worktree"
+            return 1
+        }
+    else
+        target_path=$(git rev-parse --show-toplevel 2>/dev/null) || {
+            print -u2 "wt-rm: not inside a Git repository"
+            return 1
+        }
+    fi
+
+    if [[ "$target_path" != */worktrees/* ]]; then
+        print -u2 "wt-rm: target must be inside a worktrees directory"
+        return 1
+    fi
+
+    branch_name=$(git -C "$target_path" branch --show-current) || return 1
+    [[ -n "$branch_name" ]] || {
+        print -u2 "wt-rm: target worktree is in detached HEAD state"
+        return 1
+    }
+    main_repo=$(git -C "$target_path" worktree list --porcelain |
+        awk '/^worktree / { print substr($0, 10); exit }') || return 1
+
+    [[ "$target_path" != "$main_repo" ]] || {
+        print -u2 "wt-rm: refusing to remove the main worktree"
+        return 1
+    }
+
+    current_path="${PWD:A}"
+    if [[ "$current_path" == "$target_path" || "$current_path" == "$target_path/"* ]]; then
+        builtin cd -- "$main_repo" || return 1
+    fi
+
+    if (( force )); then
+        git -C "$main_repo" worktree remove --force "$target_path" || return 1
+    else
+        if ! git -C "$main_repo" merge-base --is-ancestor "$branch_name" HEAD; then
+            print -u2 "wt-rm: branch '$branch_name' is not merged into the main checkout; use wt-rm -f to override"
+            return 1
+        fi
+        if ! git -C "$main_repo" worktree remove "$target_path"; then
+            print -u2 "wt-rm: worktree was not removed (it may contain uncommitted or untracked files); inspect it or use wt-rm -f to override"
+            return 1
+        fi
+    fi
+    git -C "$main_repo" worktree prune || return 1
+    if (( force )); then
+        git -C "$main_repo" branch -D -- "$branch_name"
+    else
+        git -C "$main_repo" branch -d -- "$branch_name"
+    fi
+}
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
